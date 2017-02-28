@@ -22,7 +22,7 @@ puts
 #OOP
 class Store
   attr_reader :animal,:size,:color,:price
-  attr_writer :price
+  attr_writer :price 
 
   def initialize(animal,size,color,price)
     @animal=animal
@@ -37,10 +37,40 @@ class Store
 
 end 
 
+#OOP with a hash
 animal1=Store.new("Dragon","large","green",7)
 animal2=Store.new("Cat","huge","red",62)
 animal3=Store.new("Fish","small","white",50000)
 
+
 animal1.print_info
 animal1.price=8
 animal1.print_info
+puts 
+
+class Store
+  attr_reader :animal,:size,:color,:price
+  attr_writer :price 
+
+  def initialize(hash_input)
+    @animal=hash_input[:animal]
+    @size=hash_input[:size]
+    @color=hash_input[:color]
+    @price=hash_input[:price]
+  end
+
+  def print_info
+    puts "The #{@animal} is  #{@size} and #{@color} it costs $#{@price}."
+  end 
+
+end 
+
+animal1=Store.new({:"animal"=> "Dragon",:"size"=> "Large",:"color"=> "Green", :"price"=> 7})
+animal2=Store.new({:"animal"=>"Cat",:"size"=>"Huge",:"color"=>"Red", :"price"=>62})
+animal3=Store.new({:"animal"=>"Fish",:"size"=>"small",:"color"=>"White", :"price"=>50000})
+
+
+animal1.print_info
+animal1.price=8
+animal1.print_info
+puts 
